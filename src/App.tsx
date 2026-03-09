@@ -4,6 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import RandomMode from "./pages/RandomMode";
+import ManualMode from "./pages/ManualMode";
+import ReportPage from "./pages/ReportPage";
+import HistoryPage from "./pages/HistoryPage";
+import ViewHistoryReport from "./pages/ViewHistoryReport";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +21,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/random" element={<RandomMode />} />
+          <Route path="/manual" element={<ManualMode />} />
+          <Route path="/report" element={<ReportPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/view-history" element={<ViewHistoryReport />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
