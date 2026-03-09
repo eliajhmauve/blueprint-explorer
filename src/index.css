@@ -2,95 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
+/* 人類圖復盤APP - 神秘宇宙設計系統 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* 宇宙深空背景 */
+    --background: 240 30% 5%;
+    --foreground: 45 30% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* 卡片 - 深邃星空 */
+    --card: 240 25% 8%;
+    --card-foreground: 45 30% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* 彈出層 */
+    --popover: 240 25% 10%;
+    --popover-foreground: 45 30% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* 主色 - 金色光芒 */
+    --primary: 42 85% 55%;
+    --primary-foreground: 240 30% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* 次色 - 靛紫神秘 */
+    --secondary: 260 60% 35%;
+    --secondary-foreground: 45 30% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* 靜音 - 暗夜星塵 */
+    --muted: 240 20% 15%;
+    --muted-foreground: 240 10% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* 強調 - 紫羅蘭能量 */
+    --accent: 280 70% 50%;
+    --accent-foreground: 45 30% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* 破壞性 */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 45 30% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* 邊框 - 星光 */
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 42 85% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* 能量中心顏色 */
+    --center-defined: 42 85% 55%;
+    --center-undefined: 240 20% 25%;
+    --center-head: 280 60% 60%;
+    --center-ajna: 200 70% 50%;
+    --center-throat: 160 70% 45%;
+    --center-g: 45 90% 50%;
+    --center-heart: 0 70% 55%;
+    --center-sacral: 25 85% 55%;
+    --center-spleen: 160 50% 40%;
+    --center-solar: 320 70% 55%;
+    --center-root: 15 70% 45%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* 漸變 */
+    --gradient-cosmic: linear-gradient(135deg, hsl(260 60% 20%) 0%, hsl(240 30% 5%) 50%, hsl(280 50% 15%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(38 90% 45%) 100%);
+    --gradient-energy: linear-gradient(180deg, hsl(280 70% 50% / 0.3) 0%, transparent 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* 陰影 */
+    --shadow-glow: 0 0 30px hsl(42 85% 55% / 0.3);
+    --shadow-energy: 0 0 60px hsl(280 70% 50% / 0.2);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* 側邊欄 */
+    --sidebar-background: 240 25% 8%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 42 85% 55%;
+    --sidebar-primary-foreground: 240 30% 5%;
+    --sidebar-accent: 260 60% 35%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 240 20% 20%;
+    --sidebar-ring: 42 85% 55%;
   }
 }
 
@@ -100,6 +87,79 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: hsl(var(--background));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'Noto Sans TC', serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .cosmic-bg {
+    background: var(--gradient-cosmic);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cosmic-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 10% 20%, hsl(45 90% 90% / 0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, hsl(45 90% 90% / 0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 50% 30%, hsl(45 90% 90% / 0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 80%, hsl(45 90% 90% / 0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 90% 40%, hsl(45 90% 90% / 0.4) 0%, transparent 100%);
+    pointer-events: none;
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(42 85% 55% / 0.5), 0 0 40px hsl(42 85% 55% / 0.3);
+  }
+
+  .energy-pulse {
+    animation: energyPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes energyPulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(42 85% 55% / 0.3);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(42 85% 55% / 0.5);
+      transform: scale(1.02);
+    }
+  }
+
+  .sacred-border {
+    border: 1px solid hsl(42 85% 55% / 0.3);
+    position: relative;
+  }
+
+  .sacred-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 1px solid hsl(280 70% 50% / 0.2);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .glass-card {
+    background: hsl(240 25% 8% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(42 85% 55% / 0.1);
   }
 }
